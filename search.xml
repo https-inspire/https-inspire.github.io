@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F02%2F02%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux tee 命令]]></title>
+    <url>%2F2018%2F05%2F16%2Flinux-tee%2F</url>
+    <content type="text"><![CDATA[tee命令一、命令作用读取标准输入的数据，并将其内容输出成文件 二、使用tee [-ai][-help][-version][file…] (文件一个或者多个) 参数： -a ：内容以追加的方式输出添加到文件 -i ：忽略中断信号 -help ：帮助 -version ：版本信息 三、举例make 2&gt;&amp;1 | tee build.log make ：手动编译 2&gt;&amp;1 ：0-stdin（标准输入）、1-stdout（标准输出）、2-stderr（标准错误） 2&gt;&amp;1表示 ： 2&gt;是将标准错误重定向到指定地方，&amp;1是标准输出，整一个意思就是将标准错误输出到标准输出中 make &gt; build.log ： 是将所有标准输出到这个文件中，并没有定义标准错误应该是定义到了标准输出，也就是说如果make执行出现错误，那么就不会写到build.log中，而是输出到屏幕上， 2&gt;&amp;1是错误和结果都重定向到build.log中。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux ln 软、硬链接命令]]></title>
+    <url>%2F2018%2F05%2F16%2Flinux-ln%2F</url>
+    <content type="text"><![CDATA[ln一、命令作用为某一个文件或目录在另外一个位置建立一个同步的链接，类似Windows下的超级链接，无论改动哪一处，另外的文件都会发生改变。 二、使用ln [-s] 源文件目录或者位置 目的文件目录或者位置 三、举例1、创建链接1ln -s /usr/local/rabbitmq-server-3.6.6 /opt/rabbitmq 将/opt/rabbitmq该目录指向了/usr/local/rabbitmq-server-3.6.6，那么我在访问/opt/rabbitmq该目录的时候，就相当于访问/usr/local/rabbitmq-server-3.6.6的目录 2、删除链接1rm -rf /opt/rabbitmq 使用rm命令即可 四、软链接和硬链接1、软链接： 软链接，以路径的形式存在。类似于Windows操作系统中的快捷方式。 软链接可以 跨文件系统 ，硬链接不可以。 软链接可以对一个不存在的文件名进行链接。 软链接可以对目录进行链接。 2、硬链接: 硬链接，以文件副本的形式存在。但不占用实际空间。 不允许给目录创建硬链接 硬链接只有在同一个文件系统中才能创建]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ElasticSearch-painless 遇到的问题]]></title>
+    <url>%2F2018%2F04%2F07%2Fes-painless%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>ElasticSearch</category>
+      </categories>
+      <tags>
+        <tag>ElasticSearch</tag>
+        <tag>Script脚本</tag>
+        <tag>问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MarkDown语法]]></title>
+    <url>%2F2018%2F04%2F07%2Fmarkdown%2F</url>
+    <content type="text"><![CDATA[MarkDown一、bash命令行、代码快或者作为1$ hexo new "My New Post" 12代码快asd 12345var num = 0;for (var i = 0; i &lt; 5; i++) &#123; num+=i;&#125;console.log(num); 二、特别字符【可做高亮】en en System.out.println(&quot;test&quot;)! A backtick-delimited string ina code span: `foo` Please don’t use any &lt;blink&gt; tags. 三、单行引用和多行并列引用 引用 aaaaaaaaa bbbbbbbbb cccccccccc 四、有序列表 1 2 3 1.2.3. 选项一 选项二 [选项3] onetest 五、字体1.粗体 2.斜体 3.粗体+斜体 4.删除线 六、分割线【—或者***】 七、键盘快捷键和数字上下标Ctrl+C Za Za 八、引用链接这是一个链接到谷歌^1的。 九、邮箱&#98;&#101;&#x6e;&#x73;&#111;&#x6e;&#95;&#x6c;&#105;&#97;&#x6e;&#103;&#x62;&#x69;&#110;&#x67;&#64;&#49;&#54;&#x33;&#46;&#99;&#111;&#109; 十、表格两种表达方式 注 :代表对齐方式 , : 与 | 之间不要有空格，否则对齐会有些不兼容 a b c 居中 左对齐 右对齐 ========= =============== ============ 简约写法 a b c 居中 左对齐 右对齐 ============ ================= ============= 十一、文字链接和图片链接More info: Deployment 百度]]></content>
+      <categories>
+        <category>概念</category>
+      </categories>
+      <tags>
+        <tag>MarkDown</tag>
+        <tag>语法</tag>
+      </tags>
+  </entry>
+</search>
