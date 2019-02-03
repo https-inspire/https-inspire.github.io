@@ -1433,7 +1433,7 @@ pre .javascript .function {
   display: none;
 }
 .posts-collapse .post-title {
-  margin-left: 60px;
+  margin-left: 80px;
   font-size: 16px;
   font-weight: normal;
   line-height: inherit;
@@ -1595,12 +1595,14 @@ pre .javascript .function {
 }
 .post-nav-next a {
   padding-left: 15px;
+  padding-top: 2.5px;
 }
 .post-nav-prev {
   text-align: right;
 }
 .post-nav-prev a {
   padding-right: 15px;
+  padding-top: 2.5px;
 }
 .post-nav-prev .fa {
   right: 0;
@@ -1822,7 +1824,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffffd5;
+  background: #e479ff;
 }
 .links-of-blogroll {
   font-size: 13px;
