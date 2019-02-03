@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Inspire&#39;s Blog">
 <meta property="og:description" content="ln一、命令作用为某一个文件或目录在另外一个位置建立一个同步的链接，类似Windows下的超级链接，无论改动哪一处，另外的文件都会发生改变。 二、使用ln [-s]  源文件目录或者位置 目的文件目录或者位置">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-17T09:13:02.944Z">
+<meta property="og:updated_time" content="2019-02-03T02:23:19.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux ln 软、硬链接命令">
 <meta name="twitter:description" content="ln一、命令作用为某一个文件或目录在另外一个位置建立一个同步的链接，类似Windows下的超级链接，无论改动哪一处，另外的文件都会发生改变。 二、使用ln [-s]  源文件目录或者位置 目的文件目录或者位置">
@@ -418,9 +418,9 @@
         <h1 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h1><h3 id="一、命令作用"><a href="#一、命令作用" class="headerlink" title="一、命令作用"></a>一、命令作用</h3><p>为某一个文件或目录在另外一个位置建立一个同步的链接，类似Windows下的超级链接，无论改动哪一处，另外的文件都会发生改变。</p>
 <h3 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h3><p><strong>ln [-s]</strong>  源文件目录或者位置 目的文件目录或者位置</p>
 <a id="more"></a>
-<h3 id="三、举例"><a href="#三、举例" class="headerlink" title="三、举例"></a>三、举例</h3><h4 id="1、创建链接"><a href="#1、创建链接" class="headerlink" title="1、创建链接"></a>1、创建链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/rabbitmq-server-3.6.6 /opt/rabbitmq</span><br></pre></td></tr></table></figure>
+<h3 id="三、举例"><a href="#三、举例" class="headerlink" title="三、举例"></a>三、举例</h3><h4 id="1、创建链接"><a href="#1、创建链接" class="headerlink" title="1、创建链接"></a>1、创建链接</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/<span class="built_in">local</span>/rabbitmq-server-3.6.6 /opt/rabbitmq</span><br></pre></td></tr></table></figure>
 <p>将/opt/rabbitmq该目录指向了/usr/local/rabbitmq-server-3.6.6，那么我在访问/opt/rabbitmq该目录的时候，就相当于访问/usr/local/rabbitmq-server-3.6.6的目录</p>
-<h4 id="2、删除链接"><a href="#2、删除链接" class="headerlink" title="2、删除链接"></a>2、删除链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf  /opt/rabbitmq</span><br></pre></td></tr></table></figure>
+<h4 id="2、删除链接"><a href="#2、删除链接" class="headerlink" title="2、删除链接"></a>2、删除链接</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf  /opt/rabbitmq</span><br></pre></td></tr></table></figure>
 <p>使用rm命令即可</p>
 <h3 id="四、软链接和硬链接"><a href="#四、软链接和硬链接" class="headerlink" title="四、软链接和硬链接"></a>四、软链接和硬链接</h3><h4 id="1、软链接："><a href="#1、软链接：" class="headerlink" title="1、软链接："></a>1、软链接：</h4><ul>
 <li>软链接，以路径的形式存在。类似于Windows操作系统中的快捷方式。</li>

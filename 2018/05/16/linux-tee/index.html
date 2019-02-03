@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Inspire&#39;s Blog">
 <meta property="og:description" content="tee命令一、命令作用读取标准输入的数据，并将其内容输出成文件 二、使用tee [-ai][-help][-version][file…]  (文件一个或者多个)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-17T08:46:39.656Z">
+<meta property="og:updated_time" content="2019-02-03T02:22:38.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux tee 命令">
 <meta name="twitter:description" content="tee命令一、命令作用读取标准输入的数据，并将其内容输出成文件 二、使用tee [-ai][-help][-version][file…]  (文件一个或者多个)">
@@ -422,8 +422,8 @@
 <p>　　-i  ：忽略中断信号</p>
 <p>　　-help ：帮助</p>
 <p>　　-version ：版本信息</p>
-<h3 id="三、举例"><a href="#三、举例" class="headerlink" title="三、举例"></a>三、举例</h3><pre><code>make 2&gt;&amp;1 | tee build.log
-</code></pre><p>make ：手动编译 </p>
+<h3 id="三、举例"><a href="#三、举例" class="headerlink" title="三、举例"></a>三、举例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make 2&gt;&amp;1 | tee build.log</span><br></pre></td></tr></table></figure>
+<p>make ：手动编译 </p>
 <p>2&gt;&amp;1 ：0-stdin（标准输入）、1-stdout（标准输出）、2-stderr（标准错误）</p>
 <p>　　　　2&gt;&amp;1表示 ：  2&gt;是将标准错误重定向到指定地方，&amp;1是标准输出，整一个意思就是将标准错误输出到标准输出中</p>
 <p>make &gt; build.log ： 是将所有标准输出到这个文件中，并没有定义标准错误应该是定义到了标准输出，也就是说如果make执行出现错误，那么就不会写到build.log中，而是输出到屏幕上，</p>
