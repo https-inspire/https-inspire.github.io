@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="原理,java,jvm,">
 
 
 
@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="个人简介">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About me">
-<meta property="og:url" content="https://https-inspire.github.io/about/index.html">
+<meta name="description" content="java虚拟机（JVM）堆、栈、方法区的介绍 JVM的基本结构图：  由图可知，JVM的内存区域主要可以划分为5块：  JVM栈 (Java Virtual Machine Stacks)  堆内存 (Heap Memory)  方法区 (Method Area)  本地方法栈 (Native Method Stacks)   程序计数器 (Program Counter (PC) Registe">
+<meta name="keywords" content="原理,java,jvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java虚拟机（JVM）内存初学">
+<meta property="og:url" content="https://https-inspire.github.io/2019/02/13/jvm/index.html">
 <meta property="og:site_name" content="Inspire&#39;s Blog">
-<meta property="og:description" content="个人简介">
+<meta property="og:description" content="java虚拟机（JVM）堆、栈、方法区的介绍 JVM的基本结构图：  由图可知，JVM的内存区域主要可以划分为5块：  JVM栈 (Java Virtual Machine Stacks)  堆内存 (Heap Memory)  方法区 (Method Area)  本地方法栈 (Native Method Stacks)   程序计数器 (Program Counter (PC) Registe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-02T08:52:59.460Z">
+<meta property="og:image" content="https://https-inspire.github.io/images/jvm.jpg">
+<meta property="og:updated_time" content="2019-02-13T07:48:23.732Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About me">
-<meta name="twitter:description" content="个人简介">
+<meta name="twitter:title" content="Java虚拟机（JVM）内存初学">
+<meta name="twitter:description" content="java虚拟机（JVM）堆、栈、方法区的介绍 JVM的基本结构图：  由图可知，JVM的内存区域主要可以划分为5块：  JVM栈 (Java Virtual Machine Stacks)  堆内存 (Heap Memory)  方法区 (Method Area)  本地方法栈 (Native Method Stacks)   程序计数器 (Program Counter (PC) Registe">
+<meta name="twitter:image" content="https://https-inspire.github.io/images/jvm.jpg">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://https-inspire.github.io/about/">
+  <link rel="canonical" href="https://https-inspire.github.io/2019/02/13/jvm/">
 
 
 
 
 
-  <title>About me | Inspire's Blog</title>
+  <title>Java虚拟机（JVM）内存初学 | Inspire's Blog</title>
   
 
 
@@ -302,46 +305,240 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://https-inspire.github.io/2019/02/13/jvm/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Inspire">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Inspire's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">About me</h1>
-
-
-	<div class="post-meta">
-		<div class="post-description">个人简介</div>
-	</div>
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h1 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h1><p><code>inspire</code>  -寓意：激励人心</p>
+          <h1 class="post-title" itemprop="name headline">Java虚拟机（JVM）内存初学</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-13T14:33:30+08:00">
+                2019-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/02/13/jvm/" class="leancloud_visitors" data-flag-title="Java虚拟机（JVM）内存初学">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="java虚拟机（JVM）堆、栈、方法区的介绍"><a href="#java虚拟机（JVM）堆、栈、方法区的介绍" class="headerlink" title="java虚拟机（JVM）堆、栈、方法区的介绍"></a>java虚拟机（JVM）堆、栈、方法区的介绍</h2><hr>
+<p><strong>JVM的基本结构图：</strong></p>
+<p><img src="/images/jvm.jpg" alt="img"></p>
+<p>由图可知，JVM的内存区域主要可以划分为5块：</p>
+<ol>
+<li>JVM栈 (Java Virtual Machine Stacks) </li>
+<li>堆内存 (Heap Memory) </li>
+<li>方法区 (Method Area) </li>
+<li>本地方法栈 (Native Method Stacks)  </li>
+<li>程序计数器 (Program Counter (PC) Register)</li>
+</ol>
+<h4 id="一、JVM栈"><a href="#一、JVM栈" class="headerlink" title="一、JVM栈"></a>一、JVM栈</h4><ul>
+<li>程序是在栈内存中运行的，所以栈内存解决的是程序运行时的问题</li>
+<li>Java以栈帧为单位保存线程的运行状态，虚拟机只会对栈执行两种操作：以栈帧为单位的压栈或者出栈</li>
+<li>一个线程独占一个Java栈（栈里的数据是线程私有的）</li>
+<li>存储的是基本数据类型和堆中数据的引用（引用地址）</li>
+<li>分为三个部分：基本类型变量区、执行环境上下文、操作指令区</li>
+<li>异常：<code>java.lang.StackOverFlowError</code></li>
+</ul>
+<h4 id="二、堆"><a href="#二、堆" class="headerlink" title="二、堆"></a>二、堆</h4><ul>
+<li>堆内存解决的是数据存储的问题</li>
+<li>所有线程共享java堆</li>
+<li>存储的是对象和数组（对象本身）</li>
+<li>动态的分配内存（运行时分配），生命周期（不确定）不需要预先告诉编译器，Java的垃圾回收机制会自动收走不使用的数据</li>
+<li>由于运行时动态分配内存，存储数据较慢</li>
+<li>异常：<code>java.lang.OutOfMemoryError</code></li>
+</ul>
+<h4 id="三、方法区"><a href="#三、方法区" class="headerlink" title="三、方法区"></a>三、方法区</h4><ul>
+<li>又称静态区</li>
+<li>存储每个类的信息（包括类名、方法信息、字段信息）、静态变量、常量以及编译器编译后的代码</li>
+</ul>
+<h4 id="四、本地方法栈"><a href="#四、本地方法栈" class="headerlink" title="四、本地方法栈"></a>四、本地方法栈</h4><p>和java栈的作用差不多，只不过是为JVM使用到的native方法(使用<strong>非Java语言</strong>实现的方法)服务的</p>
+<h4 id="五、程序计数器"><a href="#五、程序计数器" class="headerlink" title="五、程序计数器"></a>五、程序计数器</h4><ul>
+<li>用于保存当前线程执行的内存地址</li>
+<li>由于JVM程序是多线程执行的（线程轮流切换），所以为了保证线程切换回来后，还能恢复到原先状态，就需要一个独立的计数器，记录之前中断的地方，可见程序计数器也是线程私有的</li>
+<li>注意这个区域是唯一一个不抛出OutOfMemoryError的运行时数据区</li>
+</ul>
+<blockquote>
+<p>下面通过AppMain.java和Sample.java两块代码进一步说明</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//运行时, jvm把AppMain的信息都放入方法区</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppMain</span> </span>&#123;          </span><br><span class="line"><span class="comment">//main 方法本身放入方法区</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">	<span class="comment">//test1是引用，所以放到栈区里，Sample是自定义对象应该放到堆里面</span></span><br><span class="line">        Sample test1 = <span class="keyword">new</span> Sample(<span class="string">"测试1"</span>);   </span><br><span class="line">		Sample test2 = <span class="keyword">new</span> Sample(<span class="string">"测试2"</span>);</span><br><span class="line">		test1.printName();</span><br><span class="line">		test2.printName();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//运行时, jvm把Sample的信息都放入方法区</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sample</span> </span>&#123;</span><br><span class="line">    <span class="comment">//new Sample实例后， name 引用放入栈区里，  name 对象放入堆里</span></span><br><span class="line">    <span class="keyword">private</span> String name;      </span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 构造方法 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Sample</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 输出 */</span></span><br><span class="line">    <span class="comment">//print方法本身放入方法区里</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>启动虚拟机进程，程序从AppMain的开始，先从classpath中找到并读取AppMain.class二进制文件（编译后），然后把AppMain类的类信息和方法信息放入方法区，这个过程叫AppMain<strong>类的加载</strong>过程；</p>
+</li>
+<li><p>Java虚拟机定位到方法区AppMain类中的main()方法的字节码，开始执行它的指令，第一条语句是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sample test1 = <span class="keyword">new</span> Sample(<span class="string">"测试1"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接着Java虚拟机到方法区中查找Sample类的信息，没有找到，然后通过<strong>步骤1</strong>重新加载Sample类到方法区；</p>
+</li>
+<li><p>在堆中为Sample对象实例分配内存，这个实例持有指向方法区的Sample类的信息的引用（引用是指Sample类的信息在方法区中的内存地址）</p>
+</li>
+<li><p>每一个线程都有一个栈，栈里面的元素被称为栈帧，每当线程调用一个方法的时候就会往栈里压入一个新帧，这里的帧是用来存储方法的参数、局部变量和运算过程中的临时数据。位于<strong>“=”</strong>前的test1是一个在<code>main()</code>方法中定义的变量，它是一个局部变量，因此，它被会添加到了执行<code>main()</code>方法的主线程的java方法调用栈中，而<strong>“=”</strong>将把这个test1变量指向堆区中的Sample实例，也就是说，它持有指向Sample实例的引用</p>
+</li>
+<li><p>接下来，JAVA虚拟机将继续执行后续指令，在堆区里继续创建另一个Sample实例，然后依次执行它们的<code>printName()</code>方法。当JAVA虚拟机执行<code>test1.printName()</code>方法时，JAVA虚拟机根据局部变量test1持有的引用，定位到堆区中的Sample实例，再根据Sample实例持有的引用，定位到方法去中Sample类的类型信息，从而获得<code>printName()</code>方法的字节码，接着执行<code>printName()</code>方法包含的指令</p>
+</li>
+</ol>
+<h4 id="六、疑问区"><a href="#六、疑问区" class="headerlink" title="六、疑问区"></a>六、疑问区</h4><p>1、Q: Java中的参数传递（传值呢？还是传引用？）</p>
+<p>A：</p>
+<p>程序运行永远都是在栈中进行的，因而参数传递时，只存在传递基本类型和对象引用的问题，不会直接传递对象本身；</p>
+<p>对象传递是引用值传递，原始类型数据传递是值传递；<br>实际上这个传入函数的值是对象引用的拷贝，即传递的是引用的地址值，所以还是<strong>按值传递</strong>。</p>
+<p>2、Q: Java对象的大小如何计算？</p>
+<p>A：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br></pre></td></tr></table></figure>
+<p>这样在程序中完成了一个java对象的声明，obj对象所占的空间为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span>byte（java栈中保存引用的所需要空间）+ <span class="number">8</span>byte（java堆中对象所需的空间） = <span class="number">12</span>byte</span><br></pre></td></tr></table></figure>
+<p>所有的java非基本类型的对象都需要默认继承Object对象，因此不论什么样的java对象，其大小都必须是大于8byte</p>
+<p>同时java对象大小是8的整数倍，因此obj对象的大小至少为<code>16byte</code></p>
+<h4 id="七、拓展"><a href="#七、拓展" class="headerlink" title="七、拓展"></a>七、拓展</h4><p>对象引用类型分为<strong>强引用</strong>、<strong>软引用</strong>、<strong>弱引用</strong>和<strong>虚引用</strong></p>
+<p>1、强引用：声明对象时虚拟机生成的引用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sample sample = <span class="keyword">new</span> Sample();</span><br></pre></td></tr></table></figure>
+<p><code>sample</code>为强引用，不会被垃圾回收</p>
+<p>2、软引用：根据系统剩余内存来决定是否需要回收</p>
+<p>换句话说，虚拟机在发生<code>java.lang.OutOfMemoryError</code>时，肯定是没有软引用存在的</p>
+<p>3、弱引用：弱引用与软引用类似，但在进行垃圾回收时，是一定会被回收掉的</p>
+<p>因此其生命周期只存在于一个垃圾回收周期内</p>
+<p>4、虚引用虚引用并不会决定对象的生命周期。  </p>
+<p>如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收</p>
+<p>虚引用主要用来跟踪对象被垃圾回收器回收的活动</p>
 <hr>
-<p>A Coding Man.</p>
-<p>一条无梦想的咸鱼.</p>
-<hr>
-<h3 id="Find-Something-About-Me："><a href="#Find-Something-About-Me：" class="headerlink" title="Find Something About Me："></a>Find Something About Me：</h3><p><strong>GitHub：</strong> <a href="https://github.com/https-inspire" target="_blank" rel="noopener">https-inspire</a></p>
-<p><strong>Blob：</strong> <a href="https://https-inspire.github.io/">https-inspire</a></p>
-<p><strong>WeiBo：</strong> <a href="https://weibo.com/2195396850/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank" rel="noopener">梁饼</a></p>
-<p><strong>Location：</strong> 广东深圳</p>
+<p><strong>参考地址</strong>：</p>
+<p><a href="https://blog.csdn.net/rodbate/article/details/72857447" target="_blank" rel="noopener">https://blog.csdn.net/rodbate/article/details/72857447</a></p>
 
-        
-      </div>
-      
-      
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/原理/" rel="tag"># 原理</a>
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/02/代理、CDN/" rel="next" title="正向代理、反向代理和CDN的区别">
+                <i class="fa fa-chevron-left"></i> 正向代理、反向代理和CDN的区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -350,6 +547,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -480,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于我"><span class="nav-number">1.</span> <span class="nav-text">关于我</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Find-Something-About-Me："><span class="nav-number">1.0.1.</span> <span class="nav-text">Find Something About Me：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java虚拟机（JVM）堆、栈、方法区的介绍"><span class="nav-number">1.</span> <span class="nav-text">java虚拟机（JVM）堆、栈、方法区的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、JVM栈"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、JVM栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、堆"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、方法区"><span class="nav-number">1.0.3.</span> <span class="nav-text">三、方法区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、本地方法栈"><span class="nav-number">1.0.4.</span> <span class="nav-text">四、本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、程序计数器"><span class="nav-number">1.0.5.</span> <span class="nav-text">五、程序计数器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、疑问区"><span class="nav-number">1.0.6.</span> <span class="nav-text">六、疑问区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七、拓展"><span class="nav-number">1.0.7.</span> <span class="nav-text">七、拓展</span></a></li></ol></li></ol></div>
             
 
           </div>
