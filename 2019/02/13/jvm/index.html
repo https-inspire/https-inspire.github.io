@@ -88,7 +88,7 @@
 <meta property="og:description" content="java虚拟机（JVM）堆、栈、方法区的介绍 JVM的基本结构图：  由图可知，JVM的内存区域主要可以划分为5块：  JVM栈 (Java Virtual Machine Stacks)  堆内存 (Heap Memory)  方法区 (Method Area)  本地方法栈 (Native Method Stacks)   程序计数器 (Program Counter (PC) Registe">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://https-inspire.github.io/images/jvm.jpg">
-<meta property="og:updated_time" content="2019-02-13T07:52:59.071Z">
+<meta property="og:updated_time" content="2019-02-13T08:23:30.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java虚拟机（JVM）内存初学">
 <meta name="twitter:description" content="java虚拟机（JVM）堆、栈、方法区的介绍 JVM的基本结构图：  由图可知，JVM的内存区域主要可以划分为5块：  JVM栈 (Java Virtual Machine Stacks)  堆内存 (Heap Memory)  方法区 (Method Area)  本地方法栈 (Native Method Stacks)   程序计数器 (Program Counter (PC) Registe">
@@ -357,6 +357,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/概念/" itemprop="url" rel="index">
+                    <span itemprop="name">概念</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -430,7 +452,7 @@
 <h4 id="五、程序计数器"><a href="#五、程序计数器" class="headerlink" title="五、程序计数器"></a>五、程序计数器</h4><ul>
 <li>用于保存当前线程执行的内存地址</li>
 <li>由于JVM程序是多线程执行的（线程轮流切换），所以为了保证线程切换回来后，还能恢复到原先状态，就需要一个独立的计数器，记录之前中断的地方，可见程序计数器也是线程私有的</li>
-<li>注意这个区域是唯一一个不抛出OutOfMemoryError的运行时数据区</li>
+<li>注意这个区域是唯一一个不抛出<code>OutOfMemoryError</code>的运行时数据区</li>
 </ul>
 <blockquote>
 <p>下面通过AppMain.java和Sample.java两块代码进一步说明</p>

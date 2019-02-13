@@ -356,6 +356,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/概念/" itemprop="url" rel="index">
+                    <span itemprop="name">概念</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -431,7 +453,7 @@
 <h4 id="五、程序计数器"><a href="#五、程序计数器" class="headerlink" title="五、程序计数器"></a>五、程序计数器</h4><ul>
 <li>用于保存当前线程执行的内存地址</li>
 <li>由于JVM程序是多线程执行的（线程轮流切换），所以为了保证线程切换回来后，还能恢复到原先状态，就需要一个独立的计数器，记录之前中断的地方，可见程序计数器也是线程私有的</li>
-<li>注意这个区域是唯一一个不抛出OutOfMemoryError的运行时数据区</li>
+<li>注意这个区域是唯一一个不抛出<code>OutOfMemoryError</code>的运行时数据区</li>
 </ul>
 <blockquote>
 <p>下面通过AppMain.java和Sample.java两块代码进一步说明</p>
